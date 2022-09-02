@@ -6,9 +6,9 @@
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
-        $sql = "SELECT * FROM categorias WHERE id = id";
-        $sql = $db->bindValue(":id", $sql);
-        $sql->bindValue(":id"; $id);
+        $sql = "SELECT * FROM categorias WHERE id = :id";
+        $sql = $db->prepare($sql);
+        $sql->bindValue(":id", $id);
         $sql->execute();
 
         if ($sql->rowCount() > 0) {
@@ -47,9 +47,10 @@
                     <fieldset>
                         <legend>Editar Categoria</legend>
 
-                            <form method="POST">
+                            <form method="POST" action="salvar.php">
                                 <label>Nome</label>
-                                <input type="text" class="form-control" name="nome"/>
+                                <input type="text" class="form-control" value="<?php echo $categoria['nome']?>" name="nome"/>
+                                <input type="hidden" class="form-control" value="<?php echo $categoria['id']?>"name="id"/>
                             </form>
                     </fieldset>
                     <a href="" class="botao_salvar">Salvar</a>
