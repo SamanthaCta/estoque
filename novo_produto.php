@@ -22,12 +22,12 @@ if(count($_POST) > 0){
 }
 
     $categorias = array();
-    $sql = "SELECT * FROM categoria";
+    $sql = "SELECT * FROM categorias";
     $sql = $db->prepare($sql);
     $sql->execute();
 
     if ($sql->rowCount() > 0){
-        $caetgorias = $sql->fetchAll();
+        $categorias = $sql->fetchAll();
     }
 ?>
 
@@ -63,8 +63,10 @@ if(count($_POST) > 0){
 
                     <label>Categoria ID*</label>
                     <select name="categoria" required class="form-control" id="">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
+                        <option value="" disabled selected>Selecione uma categoria</option>
+                        <?php foreach($categorias as $categoria): ?>
+                        <option value="<?php echo $categoria['id'] ?>"><?php echo $categoria['nome']?></option>
+                        <?php endforeach; ?>
                     </select>
 
                     <label>Data de Validade</label>
