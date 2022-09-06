@@ -21,6 +21,13 @@
 
         <a href="<?php echo $url ?>nova_categoria.php">
             <div class="botao_menu"><img src="<?php echo $url ?>./img/config.png" alt=""></div>
+        
+        <a href="<?php echo $url ?>nova_categoria.php">
+        <div class="botao_menu"><img src="<?php echo $url ?>./img/registro.png"></div>
+        </a>
+
+        <a href="<?php echo $url ?>novo_produto.php">
+        <div class="botao_menu"><img src="<?php echo $url ?>./img/novo_produto.png"></div>
         </a>
     </div>
 </body>

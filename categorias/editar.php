@@ -53,6 +53,7 @@
                                 <input type="hidden" class="form-control" value="<?php echo $categoria['id']?>"name="id"/>
                             </form>
                     </fieldset>
+                    <br/><a href="../nova_categoria.php" class="botao_voltar">Voltar</a>
                     <a href="" class="botao_salvar">Salvar</a>
                 </div>
             </div>
