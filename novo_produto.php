@@ -6,17 +6,19 @@ if(count($_POST) > 0){
     $nome = $_POST['nome'];
     $id_categoria = $_POST['id_categoria'];
     $dt_validade = $_POST['dt_validade'];
+    $quantidade = $_POST['quantidade'];
 
-    $sql = "INSERT INTO produtos SET nome = :nome, id_categoria = :id_categoria, dt_validade = :dt_validade = NOW()";
+    $sql = "INSERT INTO produtos SET nome = :nome, id_categoria = :id_categoria, dt_validade = :dt_validade, quantidade = :quantidade";
 
     $sql = $db->prepare($sql);
     $sql->bindValue(":nome", $nome);
     $sql->bindValue(":id_categoria", $id_categoria);
     $sql->bindValue(":dt_validade", $dt_validade);
+    $sql->bindValue(":quantidade", $quantidade);
     $sql->execute();
 
     if($sql) {
-        header("Location: index.php");
+        header("Location: produtos/listar.php");
     }
 
 }
@@ -62,15 +64,19 @@ if(count($_POST) > 0){
                     <input type="text" required class="form-control" name="nome"/>
 
                     <label>Categoria ID*</label>
-                    <select name="categoria" required class="form-control" id="">
+                    <select name="id_categoria" required class="form-control" id="">
                         <option value="" disabled selected>Selecione uma categoria</option>
                         <?php foreach($categorias as $categoria): ?>
+                            
                         <option value="<?php echo $categoria['id'] ?>"><?php echo $categoria['nome']?></option>
                         <?php endforeach; ?>
                     </select>
 
                     <label>Data de Validade</label>
                     <input type="date" class="form-control" name="dt_validade"/>
+
+                    <label>Quantidade</label>
+                    <input type="text" class="form-control" name="quantidade"/>
 
                     <br/><a href="index.php" class="btn btn-warning">Voltar</a>
                     <button type="submit" class="btn btn-success">Salvar</button>

@@ -3,6 +3,8 @@
     global $db;
     $categoria = array();
 
+    
+
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
@@ -51,10 +53,11 @@
                                 <label>Nome</label>
                                 <input type="text" class="form-control" value="<?php echo $categoria['nome']?>" name="nome"/>
                                 <input type="hidden" class="form-control" value="<?php echo $categoria['id']?>"name="id"/>
+                                <button class="botao_salvar">Salvar</button>
                             </form>
                     </fieldset>
                     <br/><a href="../nova_categoria.php" class="botao_voltar">Voltar</a>
-                    <a href="" class="botao_salvar">Salvar</a>
+                
                 </div>
             </div>
     </div>

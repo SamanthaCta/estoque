@@ -12,22 +12,26 @@
 <body>
     <div class="fundo_menu">
         <a href="<?php echo $url ?>novo_usuario.php">
-            <div class="botao_menu"> <img src="<?php echo $url ?>./img/mais.png" alt="adiconar"></div>
+            <div class="botao_menu"> <img src="<?php echo $url ?>./img/mais-zoom.gif" alt="adiconar"></div>
         </a>
     
         <a href="<?php echo $url ?>busca.php">
-            <div class="botao_menu"><img src="<?php echo $url ?>./img/pesquisa.png" alt="pesquisa"></div>
+            <div class="botao_menu"><img src="<?php echo $url ?>./img/procurar.gif" alt="pesquisa"></div>
         </a>
 
         <a href="<?php echo $url ?>nova_categoria.php">
-            <div class="botao_menu"><img src="<?php echo $url ?>./img/config.png" alt=""></div>
+            <div class="botao_menu"><img src="<?php echo $url ?>./img/definicoes.gif" alt=""></div>
         
         <a href="<?php echo $url ?>nova_categoria.php">
-        <div class="botao_menu"><img src="<?php echo $url ?>./img/registro.png"></div>
+        <div class="botao_menu"><img src="<?php echo $url ?>./img/exame.gif"></div>
         </a>
 
         <a href="<?php echo $url ?>novo_produto.php">
-        <div class="botao_menu"><img src="<?php echo $url ?>./img/novo_produto.png"></div>
+        <div class="botao_menu"><img src="<?php echo $url ?>./img/lapis.gif"></div>
+        </a>
+
+        <a href="<?php echo $url ?>produtos/listar.php">
+        <div class="botao_menu"><img src="<?php echo $url ?>./img/pa-de-lixo.gif"></div>
         </a>
     </div>
 </body>
