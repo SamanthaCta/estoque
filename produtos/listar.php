@@ -4,29 +4,14 @@
     $produtos = array();
     global $db;
 
-    $sql = "SELECT * FROM produtos";
+    $sql = "SELECT produtos.id, produtos.nome, produtos.id_categoria, produtos.dt_entrada,produtos.dt_saida, produtos.dt_validade, produtos.quantidade, categorias.nome AS nome_categoria FROM produtos INNER JOIN categorias ON produtos.id_categoria = categorias.id";
     $sql = $db-> prepare($sql);
     $sql -> execute();
 
     if ($sql->rowCount() > 0){
         $produtos = $sql -> fetchAll();
     }
-
-    if(count($_POST) > 0){
-
-        $nome = $_POST['nome'];
-
-        $sql = "INSERT INTO categorias SET nome = :nome";
-
-        $sql = $db->prepare($sql);
-        $sql->bindValue(":nome", $nome);
-        $sql->execute();
-
-        if($sql) {
-            header("Location: nova_categoria.php");
-        }
-
-    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +56,7 @@
                                     <tr>
                                         <td> <?php echo $produto['id']?></td>
                                         <td><?php echo $produto['nome']?></td>
-                                        <td><?php echo $produto['id_categoria']?></td>
+                                        <td><?php echo $produto['nome_categoria']?></td>
                                         <td><?php echo $produto['dt_entrada']?></td>
                                         <td><?php echo $produto['dt_saida']?></td>
                                         <td><?php echo $produto['dt_validade']?></td>
